@@ -9,148 +9,160 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff4e6;
-            color: #5c3d2e;
+            background-color: #f8f9fa;
         }
-
         header {
-            background-color: #d62828;
+            background-color: #d6336c;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
-
+        header img {
+            max-width: 80px;
+            margin-bottom: 10px;
+        }
         nav {
-            display: flex;
-            justify-content: center;
-            background-color: #f77f00;
-            padding: 10px 0;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
         nav a {
-            color: white;
-            text-decoration: none;
             margin: 0 15px;
+            text-decoration: none;
+            color: #d6336c;
             font-weight: bold;
         }
-
         nav a:hover {
-            text-decoration: underline;
+            color: #c82350;
         }
-
-        .hero {
-            text-align: center;
-            padding: 50px 20px;
-            background-image: url('hero.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
+        .content {
+            display: none;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
         }
-
-        .recipes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
+        .content.active {
+            display: block;
         }
-
-        .recipe {
-            width: 300px;
-            margin: 20px;
-            padding: 15px;
-            border: 2px solid #d62828;
-            border-radius: 10px;
-            background-color: #fff;
+        h1, h2 {
+            color: #d6336c;
             text-align: center;
         }
-
-        .recipe img {
+        p, ul {
+            line-height: 1.6;
+        }
+        .recipes img {
             max-width: 100%;
-            border-radius: 10px;
+            height: auto;
+            margin: 20px 0;
         }
-
-        .recipe h3 {
-            color: #d62828;
-            margin: 15px 0;
-        }
-
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #5c3d2e;
+            background-color: #d6336c;
             color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
         }
     </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Gourmandises Festives</h1>
-        <p>Des recettes festives pour des moments magiques ✨</p>
-    </header>
 
-    <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#recettes">Recettes</a>
-        <a href="#apropos">À propos</a>
-    </nav>
+<header>
+    <img src="logo.jpg.jpg" alt="Logo Gourmandises Festives">
+    <h1>Gourmandises Festives</h1>
+</header>
 
-    <section id="accueil" class="hero">
-        <h2>Bienvenue sur Gourmandises Festives</h2>
-        <p>Explorez des recettes sucrées et salées pour sublimer vos fêtes de fin d'année !</p>
-    </section>
+<nav>
+    <a href="javascript:void(0)" onclick="showSection('accueil')">Accueil</a>
+    <a href="javascript:void(0)" onclick="showSection('recettes-salees')">Recettes Salées</a>
+    <a href="javascript:void(0)" onclick="showSection('recettes-sucrees')">Recettes Sucrées</a>
+    <a href="javascript:void(0)" onclick="showSection('a-propos')">À Propos</a>
+</nav>
 
-    <section id="recettes" class="recipes">
-        <div class="recipe">
-            <img src="salmon-spinach.jpg" alt="Feuilletés au Saumon et Épinards">
-            <h3>Feuilletés au Saumon et Épinards</h3>
-            <p><strong>Ingrédients :</strong> Pâte feuilletée, saumon, épinards, oignon, ail, fromage à la crème, œuf, sel, poivre, aneth.</p>
-            <p><strong>Étapes :</strong> Préparez une farce avec les épinards sautés, le saumon et le fromage à la crème, puis formez des feuilletés et enfournez à 180°C.</p>
-        </div>
+<section id="accueil" class="content active">
+    <h2>Bienvenue sur Gourmandises Festives</h2>
+    <p>
+        Les fêtes de fin d’année sont des moments magiques où la convivialité, les repas gourmands, et l’ambiance chaleureuse occupent une place centrale.
+    </p>
+    <p>
+        Gourmandises Festives a été créé pour partager des idées de recettes simples et savoureuses, parfaites pour sublimer vos célébrations, que ce soit Noël, le réveillon du Nouvel An, ou tout autre moment festif !
+    </p>
+</section>
 
-        <div class="recipe">
-            <img src="turkey-cepes.jpg" alt="Rôti de Dinde aux Cèpes et Pommes de Terre">
-            <h3>Rôti de Dinde aux Cèpes et Pommes de Terre</h3>
-            <p><strong>Ingrédients :</strong> Rôti de dinde, cèpes, pommes de terre, oignon, ail, thym, beurre, sel, poivre.</p>
-            <p><strong>Étapes :</strong> Enfournez le rôti avec les légumes et les cèpes à 180°C pendant 1h30 en arrosant régulièrement.</p>
-        </div>
+<section id="recettes-salees" class="content">
+    <h2>Recettes Salées</h2>
+    <article>
+        <h3>Feuilletés au Saumon et Épinards</h3>
+        <img src="salmon-spinach.jpg.jpg" alt="Feuilletés au Saumon">
+        <ul>
+            <li>1 pâte feuilletée</li>
+            <li>200g de saumon frais ou fumé</li>
+            <li>150g d’épinards frais</li>
+            <li>1 petit oignon, etc.</li>
+        </ul>
+        <p>Préparation : Préchauffe ton four à 180°C... (instructions complètes)</p>
+    </article>
+    <article>
+        <h3>Quiche au Potiron</h3>
+        <img src="pumpkin-quiche.jpg.jpg" alt="Quiche au Potiron">
+        <ul>
+            <li>1 pâte brisée</li>
+            <li>200g de potiron</li>
+            <li>100ml de crème fraîche</li>
+            <li>2 œufs, etc.</li>
+        </ul>
+        <p>Préparation : Préchauffe ton four à 180°C... (instructions complètes)</p>
+    </article>
+</section>
 
-        <div class="recipe">
-            <img src="pumpkin-quiche.jpg" alt="Quiche à la Courge, Chèvre et Noix de Pécan">
-            <h3>Quiche à la Courge, Chèvre et Noix de Pécan</h3>
-            <p><strong>Ingrédients :</strong> Courge, fromage de chèvre, noix de pécan, œufs, crème fraîche, oignon, miel, pâte brisée.</p>
-            <p><strong>Étapes :</strong> Préparez une garniture à base de purée de courge et enfournez la quiche à 180°C pendant 40 minutes.</p>
-        </div>
+<section id="recettes-sucrees" class="content">
+    <h2>Recettes Sucrées</h2>
+    <article>
+        <h3>Bûche au Chocolat et Banane</h3>
+        <img src="buche.jpg.jpg" alt="Bûche au Chocolat">
+        <ul>
+            <li>200g de chocolat noir</li>
+            <li>3 œufs</li>
+            <li>100g de sucre, etc.</li>
+        </ul>
+        <p>Préparation : Préchauffe ton four à 180°C... (instructions complètes)</p>
+    </article>
+    <article>
+        <h3>Amarettis</h3>
+        <img src="amaretti.jpg.jpg" alt="Amarettis">
+        <ul>
+            <li>250g de poudre d’amandes</li>
+            <li>200g de sucre glace</li>
+            <li>2 blancs d’œufs, etc.</li>
+        </ul>
+        <p>Préparation : Préchauffe ton four à 160°C... (instructions complètes)</p>
+    </article>
+</section>
 
-        <div class="recipe">
-            <img src="buche.jpg" alt="Bûche au Chocolat et Banane">
-            <h3>Bûche au Chocolat et Banane</h3>
-            <p><strong>Ingrédients :</strong> Chocolat noir, œufs, sucre, farine, bananes, crème liquide, sucre glace, vanille.</p>
-            <p><strong>Étapes :</strong> Préparez un biscuit roulé garni de chantilly et bananes, puis recouvrez de chocolat fondu.</p>
-        </div>
+<section id="a-propos" class="content">
+    <h2>À Propos</h2>
+    <p>
+        Gourmandises Festives a été créé pour partager des idées de recettes simples et savoureuses, parfaites pour sublimer vos célébrations, que ce soit Noël, le réveillon du Nouvel An, ou tout autre moment festif !
+    </p>
+    <p>
+        Les recettes sont soigneusement sélectionnées pour plaire à tous les goûts et ajouter une touche festive à vos repas.
+    </p>
+</section>
 
-        <div class="recipe">
-            <img src="gingerbread.jpg" alt="Bonhommes en Pain d'Épices">
-            <h3>Bonhommes en Pain d'Épices</h3>
-            <p><strong>Ingrédients :</strong> Farine, beurre, sucre roux, œuf, miel, épices, levure, sel.</p>
-            <p><strong>Étapes :</strong> Formez une pâte épicée, découpez des formes et faites cuire à 180°C pendant 10 minutes.</p>
-        </div>
+<footer>
+    <p>© 2024 Gourmandises Festives - Tous droits réservés</p>
+</footer>
 
-        <div class="recipe">
-            <img src="amaretti.jpg" alt="Amarettis">
-            <h3>Amarettis</h3>
-            <p><strong>Ingrédients :</strong> Poudre d’amandes, sucre glace, blancs d’œufs, farine, sel, liqueur (optionnel).</p>
-            <p><strong>Étapes :</strong> Mélangez les ingrédients, formez des boules et faites cuire à 160°C pendant 12 minutes.</p>
-        </div>
-    </section>
-
-    <section id="apropos">
-        <h2>À propos</h2>
-        <p>Bienvenue sur Gourmandises Festives ! Ici, découvrez des recettes sucrées et salées idéales pour vos fêtes de fin d'année. J'espère que ce blog vous inspirera à créer des repas mémorables. Bon appétit ! 🎄✨</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Gourmandises Festives. Tous droits réservés.</p>
-    </footer>
 </body>
 </html>
-
